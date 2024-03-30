@@ -1,6 +1,13 @@
 const attrMap = {};
 const valMap = {};
-(() => {
+
+function setAttrMap(obj) {
+  Object.assign(attrMap, obj);
+}
+function setValMap(obj) {
+  Object.assign(valMap, obj);
+}
+window.onload = () => {
   /* 属性映射表 */
   const defaultAttrMap = {
     /* 首字母命名法 */
@@ -20,6 +27,7 @@ const valMap = {};
     b: "bottom",
     l: "left",
     r: "right",
+    fs: "font-size",
     /* 取三命名法 */
     pos: "position",
     bor: "border",
@@ -130,7 +138,8 @@ const valMap = {};
     const i = fun.indexOf(leftFunTab);
     let [funName, funArgs] = cut(fun, i);
     funArgs = funArgs.slice(1, -1);
-
+    if (!funArgs) return;
+    // console.log(funArgs)
     funArgs = funArgs
       .split(",")
       .map((el, i) => {
@@ -284,83 +293,7 @@ const valMap = {};
     )
   );
 
-  let cssString = `
-  *,
-*::before,
-*::after {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  min-height: 100vh;
-}
-
-a {
-  text-decoration: inherit;
-  color: inherit;
-}
-
-ul,
-ol {
-  list-style: none;
-}
-
-button,
-input,
-select,
-option,
-textarea {
-  border: unset;
-  outline: unset;
-}
-
-i,
-em {
-  font-style: inherit;
-}
-
-b,
-strong {
-  font-weight: inherit;
-}
-f-col,f-row{
-  background-color: #0002;
-}
-*:has(> f-row),
-*:has(> f-col) {
-  display: flex;
-}
-*:has(> f-col) {
-  flex-direction: row;
-}
-
-*:has(> f-row) {
-  flex-direction: column;
-}
-
-.center {
-  display: grid;
-  place-content: center;
-}
-.wh {
-  --1: 100%;
-  --2: transparent;
-  width: var(--1);
-  height: var(--1);
-  background-color: var(--2);
-}
-.innerRow {
-  display: flex;
-  flex-direction: column;
-}
-
-.innerCol {
-  display: flex;
-  flex-direction: row;
-}
-  `;
+  let cssString = `*,*::before,*::after {margin: 0;padding: 0;box-sizing: border-box;}body {min-height: 100vh;}a {text-decoration: inherit;color: inherit;}ul,ol {list-style: none;}button,input,select,option,textarea {border: unset;outline: unset;}i,em {font-style: inherit;}b,strong {font-weight: inherit;}f-col,f-row{background-color: #0002;}*:has(> f-row),*:has(> f-col) {display: flex;}*:has(> f-col) {flex-direction: row;}*:has(> f-row) {flex-direction: column;}.center {display: grid;place-content: center;}.wh {--1: 100%;--2: transparent;width: var(--1);height: var(--1);background-color: var(--2);}.innerRow {display: flex;flex-direction: column;}.innerCol {display: flex;flex-direction: row;}`;
   cssString += fAttrList
     .map((fAttr) => `${toSelector(fAttr)}{${toCss(fAttr)}}`)
     .join("");
@@ -370,12 +303,11 @@ f-col,f-row{
     const style = document.createElement("style");
     style.innerHTML = cssString;
     const mount = document.querySelector("style");
-    console.log(mount);
     if (mount) {
       mount.parentElement?.insertBefore(style, mount);
     } else {
       document.querySelector("head")?.append(style);
     }
   })();
-})();
-// export { attrMap, valMap };
+};
+

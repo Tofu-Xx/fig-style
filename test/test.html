@@ -1,20 +1,39 @@
 <head>
-  <script defer src="../src/fig.js"></script>
+  <script src="../src/fig.js"></script>
 </head>
+<style>
+  .test::after {
+    width: 100px;
+    height: 100px;
+    background-color: #fab;
+  }
+  /* [wh\(100\)]::after{
+    content: 'asdf';
+  } */
+</style>
 
-<body p:0_60_0>
-  <f-row h100 gap20px \f-col{center();}>
-    <f-col flex2>选中</f-col>
-    <f-col flex3 bgc:red>选中</f-col>
-    <f-col flex4 innerRow()>
-      <div bgc:#4a4>选中</div>
-      选中
+<body>
+  <div wh(100)  \#foo,\.bar,\\span{fs2em}>
+    <f-col id="foo">1</f-col>
+    <f-col class="bar">2</f-col>
+    <f-col>3</f-col>
+    <f-col>
+      <span>1</span>
+      <span>2</span>
+      <span>3</span>
     </f-col>
-    <div bgc:rgb(123,219,19)>选中</div>
-  </f-row>
-  <f-row h100>
-    <f-col wh(180,#6af)>?</f-col>
-    选中
-  </f-row>
+    <f-col .box{bgc:#fab} class="box">??</f-col>
+  </div>
+  <div +.box{bgc:rgb(225,0,0);h100;center()}> lorem </div>
+  <div class="box">??</div>
 </body>
 
+<script>
+  setAttrMap({
+    c: 'color',
+  });
+  setValMap({
+    '\\': 'none',
+  })
+
+</script>
