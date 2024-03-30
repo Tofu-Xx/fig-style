@@ -4,7 +4,6 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  background-color: #0002;
 }
 
 body {
@@ -39,7 +38,9 @@ b,
 strong {
   font-weight: inherit;
 }
-
+f-col,f-row{
+  background-color: #0002;
+}
 *:has(> f-row),
 *:has(> f-col) {
   display: flex;

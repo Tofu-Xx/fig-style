@@ -284,7 +284,82 @@ const valMap = {};
     )
   );
 
-  let cssString = `*,*::before,*::after {margin: 0;padding: 0;box-sizing: border-box;background-color: #0002;}body {min-height: 100vh;}a {text-decoration: inherit;color: inherit;}ul,ol {list-style: none;}button,input,select,option,textarea {border: unset;outline: unset;}i,em {font-style: inherit;}b,strong {font-weight: inherit;}*:has(> f-row),*:has(> f-col) {display: flex;}*:has(> f-col) {flex-direction: row;}*:has(> f-row) {flex-direction: column;}.center {display: grid;place-content: center;}.wh {--1: 100%;--2: transparent;width: var(--1);height: var(--1);background-color: var(--2);}.innerRow {display: flex;flex-direction: column;}.innerCol {display: flex;flex-direction: row;}
+  let cssString = `
+  *,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+}
+
+a {
+  text-decoration: inherit;
+  color: inherit;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+button,
+input,
+select,
+option,
+textarea {
+  border: unset;
+  outline: unset;
+}
+
+i,
+em {
+  font-style: inherit;
+}
+
+b,
+strong {
+  font-weight: inherit;
+}
+f-col,f-row{
+  background-color: #0002;
+}
+*:has(> f-row),
+*:has(> f-col) {
+  display: flex;
+}
+*:has(> f-col) {
+  flex-direction: row;
+}
+
+*:has(> f-row) {
+  flex-direction: column;
+}
+
+.center {
+  display: grid;
+  place-content: center;
+}
+.wh {
+  --1: 100%;
+  --2: transparent;
+  width: var(--1);
+  height: var(--1);
+  background-color: var(--2);
+}
+.innerRow {
+  display: flex;
+  flex-direction: column;
+}
+
+.innerCol {
+  display: flex;
+  flex-direction: row;
+}
   `;
   cssString += fAttrList
     .map((fAttr) => `${toSelector(fAttr)}{${toCss(fAttr)}}`)
