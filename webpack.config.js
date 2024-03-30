@@ -9,7 +9,7 @@ module.exports = {
   /* 出口 */
   output: {
     path: path.resolve(__dirname, "dist"),
-    filename: "./fig.js",
+    filename: "./fig.min.js",
     clean: true,
   },
 };
