@@ -74,6 +74,13 @@ window.onload = () => {
 
   /* fAttr类型判断 */
   function isFun(fAttr) {
+    const i = fAttr.indexOf(leftFunTab);
+    if (i === -1) return false;
+    console.log(i);
+    let [funName, _] = cut(fAttr, i);
+    if (has(funName, attr_val)) {
+      return false;
+    }
     return isEnd(fAttr, funTab); /* && !has(fAttr, attr_val); */
   }
   function isSelector(fAttr) {
@@ -148,7 +155,7 @@ window.onload = () => {
         /* 指定传参 */
         if (isFAttr(null, el)) {
           /* 默认传参为css函数 */
-          if (isFun(el) && !has(el,attr_val)) {
+          if (isFun(el) && !has(el, attr_val)) {
             return `--${i + 1}:${parseRawVal(rawVal)};`;
           }
           let rawAttr, rawVal;
@@ -161,7 +168,7 @@ window.onload = () => {
           }
           return `--${rawAttr}:${parseRawVal(rawVal)};`;
         }
-        
+
         /* 默认传参 */
         return `--${i + 1}:${defaultValMap[el] ?? el};`;
       })
