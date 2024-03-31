@@ -3,32 +3,27 @@
 </head>
 
 
+
+
 <style>
-  .f{
-    background-color: #6af;
-  }
-  .fig-box{
-    --w:100px;
-    --h:100px;
-    --c:#0000;
-    width: var(--w);
-    height: var(--h);
+  .fig-test {
+    --width: 100px;
+    --height: 100px;
+    --p: 0;
+    --c: transparent;
+    padding: var(--p);
+    width: var(--width);
+    height: var(--height);
     background-color: var(--c);
   }
 </style>
-
-<body class="b" bgc:rgb(12,123,23);>
-  <f-col bgc:rgb(225,222,123)!important;   class="f fig-center"> lorem </f-col>
-  <h2 +p,\em,\.d{color:red;center()} innerCol()>
-    <em>??</em>
-    <em>??</em>
-    <i class="d">???</i>
-  </h2>
-  <p wh(100;rgb(12,23,123))>??</p>
-  <p box(c:#fab)>!!</p>
-  <p box()>!!</p>
+<body>
+  
+<div test()>1</div>
+<div test(width100)>2</div>
+<div test(height100;c:rgb(225,0,0))>3</div>
+<div test(p5_10_20)>4</div>
 </body>
-
 <script>
   setAttrMap({
     c: 'color',
@@ -38,4 +33,3 @@
   })
 
 </script>
-

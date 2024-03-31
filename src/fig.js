@@ -144,10 +144,13 @@ window.onload = () => {
     funArgs = funArgs
       .split(";")
       .map((el, i) => {
-        // console.log(el)
-        /* 默认传参 */
-        if (isFAttr(null, el) && !isFun(el)) {
-          /* 指定传参 */
+        // console.log('所有',el)
+        /* 指定传参 */
+        if (isFAttr(null, el)) {
+          /* 默认传参为css函数 */
+          if (isFun(el) && !has(el,attr_val)) {
+            return `--${i + 1}:${parseRawVal(rawVal)};`;
+          }
           let rawAttr, rawVal;
           /* fig一般属性 */
           if (isCommonAtom(el)) [rawAttr, rawVal] = el.split(attr_val);
@@ -156,9 +159,10 @@ window.onload = () => {
             const i = el.match(/\d/)?.index;
             [rawAttr, rawVal] = cut(el, i);
           }
-          return `--${rawAttr}:${defaultValMap[rawVal] ?? rawVal};`;
+          return `--${rawAttr}:${parseRawVal(rawVal)};`;
         }
-        console.log(el);
+        
+        /* 默认传参 */
         return `--${i + 1}:${defaultValMap[el] ?? el};`;
       })
       .join("");
