@@ -76,7 +76,7 @@ window.onload = () => {
   function isFun(fAttr) {
     const i = fAttr.indexOf(leftFunTab);
     if (i === -1) return false;
-    console.log(i);
+    // console.log(i);
     let [funName, _] = cut(fAttr, i);
     if (has(funName, attr_val)) {
       return false;
