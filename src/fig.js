@@ -74,7 +74,7 @@ window.onload = () => {
 
   /* fAttr类型判断 */
   function isFun(fAttr) {
-    return isEnd(fAttr, funTab) && !has(fAttr, attr_val);
+    return isEnd(fAttr, funTab); /* && !has(fAttr, attr_val); */
   }
   function isSelector(fAttr) {
     return isEnd(fAttr, selectorTab);
@@ -119,13 +119,14 @@ window.onload = () => {
     /* 有!important标识 */
     if (rawValGroup.at(-1) === importantTab) {
       rawValGroup = rawValGroup.slice(0, -1);
-      rawValGroup += "_!important";
+      rawValGroup += "!important";
     }
     const cssVal = rawValGroup
-      .split("_")
+      .split(val_val)
       .map((rawVal) => defaultValMap[rawVal] ?? rawVal)
       .join(" ");
 
+    // console.log(cssVal)
     return cssVal;
   }
 
@@ -136,28 +137,29 @@ window.onload = () => {
    */
   function funToCss(fun) {
     const i = fun.indexOf(leftFunTab);
-    let [funName, funArgs] = cut(fun, i);
+    let [_, funArgs] = cut(fun, i);
     funArgs = funArgs.slice(1, -1);
     if (!funArgs) return;
     // console.log(funArgs)
     funArgs = funArgs
-      .split(",")
+      .split(";")
       .map((el, i) => {
+        // console.log(el)
         /* 默认传参 */
-        if (!isFAttr(null, el)) {
-          return `--${i + 1}:${parseRawVal(el)};`;
+        if (isFAttr(null, el) && !isFun(el)) {
+          /* 指定传参 */
+          let rawAttr, rawVal;
+          /* fig一般属性 */
+          if (isCommonAtom(el)) [rawAttr, rawVal] = el.split(attr_val);
+          /* fig简写属性 */
+          if (isAbbrAtom(el)) {
+            const i = el.match(/\d/)?.index;
+            [rawAttr, rawVal] = cut(el, i);
+          }
+          return `--${rawAttr}:${defaultValMap[rawVal] ?? rawVal};`;
         }
-
-        /* 指定传参 */
-        let rawAttr, rawVal;
-        /* fig一般属性 */
-        if (isCommonAtom(el)) [rawAttr, rawVal] = el.split(attr_val);
-        /* fig简写属性 */
-        if (isAbbrAtom(el)) {
-          const i = el.match(/\d/)?.index;
-          [rawAttr, rawVal] = cut(el, i);
-        }
-        return `--${rawAttr}:${parseRawVal(rawVal)};`;
+        console.log(el);
+        return `--${i + 1}:${defaultValMap[el] ?? el};`;
       })
       .join("");
     return funArgs;
@@ -196,13 +198,9 @@ window.onload = () => {
       .split(atom_atom)
       .map((atom) => {
         if (isFun(atom)) {
-          // console.log(atom);
           const funName = atom.slice(0, atom.indexOf(leftFunTab));
-          // console.log(funName)
-          funCalssList.push(funName);
-          // console.log(fFunToSelector(atom));
+          funCalssList.push("fig-" + funName);
         }
-        // toSelector(atom)
         return toCss(atom);
       })
       .join("");
@@ -211,7 +209,6 @@ window.onload = () => {
     let escaped = selector.replaceAll(/\\\\/g, " ");
     escaped = escaped.replaceAll(/\\/g, ">");
     selector = escaped.split(",").map((selector) => {
-      // console.log(`[${selectorAttr}]${selector}`);
       return `[${escape(selectorAttr)}]${selector}`;
     });
     // .join(",\n");
@@ -223,12 +220,9 @@ window.onload = () => {
         });
         return el + "." + funCalss;
       });
-      // console.log(funUnionSelector)
       return funUnionSelector;
     });
-    // console.log(funSelector)
     selector = [...selector, ...funSelector].flat();
-    // console.log(selector)
 
     return {
       selector,
@@ -255,8 +249,8 @@ window.onload = () => {
     const escaped = escape(fFun);
     const funName = fFun.slice(0, fFun.indexOf(leftFunTab));
     const hasFunDomList = Array(...document.querySelectorAll(`[${escaped}]`));
-    hasFunDomList.forEach((el) => el.classList.add(funName));
-    return `[${escaped}].${funName}`;
+    hasFunDomList.forEach((el) => el.classList.add("fig-" + funName));
+    return `[${escaped}].fig-${funName}`;
   }
   /**
    *  将fAttr转为css属性选择器
@@ -293,7 +287,83 @@ window.onload = () => {
     )
   );
 
-  let cssString = `*,*::before,*::after {margin: 0;padding: 0;box-sizing: border-box;}body {min-height: 100vh;}a {text-decoration: inherit;color: inherit;}ul,ol {list-style: none;}button,input,select,option,textarea {border: unset;outline: unset;}i,em {font-style: inherit;}b,strong {font-weight: inherit;}f-col,f-row{background-color: #0002;}*:has(> f-row),*:has(> f-col) {display: flex;}*:has(> f-col) {flex-direction: row;}*:has(> f-row) {flex-direction: column;}.center {display: grid;place-content: center;}.wh {--1: 100%;--2: transparent;width: var(--1);height: var(--1);background-color: var(--2);}.innerRow {display: flex;flex-direction: column;}.innerCol {display: flex;flex-direction: row;}`;
+  let cssString = `
+  *,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+}
+
+a {
+  text-decoration: inherit;
+  color: inherit;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+button,
+input,
+select,
+option,
+textarea {
+  border: unset;
+  outline: unset;
+}
+
+i,
+em {
+  font-style: inherit;
+}
+
+b,
+strong {
+  font-weight: inherit;
+}
+f-col,f-row{
+  background-color: #0002;
+}
+*:has(> f-row),
+*:has(> f-col) {
+  display: flex;
+}
+*:has(> f-col) {
+  flex-direction: row;
+}
+
+*:has(> f-row) {
+  flex-direction: column;
+}
+
+.fig-center {
+  display: grid;
+  place-content: center;
+}
+.fig-wh {
+  --1: 100%;
+  --2: transparent;
+  width: var(--1);
+  height: var(--1);
+  background-color: var(--2);
+}
+.fig-innerRow {
+  display: flex;
+  flex-direction: column;
+}
+
+.fig-innerCol {
+  display: flex;
+  flex-direction: row;
+}
+  `;
   cssString += fAttrList
     .map((fAttr) => `${toSelector(fAttr)}{${toCss(fAttr)}}`)
     .join("");
@@ -310,4 +380,3 @@ window.onload = () => {
     }
   })();
 };
-

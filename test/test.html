@@ -1,31 +1,32 @@
 <head>
   <script src="../src/fig.js"></script>
 </head>
+
+
 <style>
-  .test::after {
-    width: 100px;
-    height: 100px;
-    background-color: #fab;
+  .f{
+    background-color: #6af;
   }
-  /* [wh\(100\)]::after{
-    content: 'asdf';
-  } */
+  .fig-box{
+    --w:100px;
+    --h:100px;
+    --c:#0000;
+    width: var(--w);
+    height: var(--h);
+    background-color: var(--c);
+  }
 </style>
 
-<body>
-  <div wh(100)  \#foo,\.bar,\\span{fs2em}>
-    <f-col id="foo">1</f-col>
-    <f-col class="bar">2</f-col>
-    <f-col>3</f-col>
-    <f-col>
-      <span>1</span>
-      <span>2</span>
-      <span>3</span>
-    </f-col>
-    <f-col .box{bgc:#fab} class="box">??</f-col>
-  </div>
-  <div +.box{bgc:rgb(225,0,0);h100;center()}> lorem </div>
-  <div class="box">??</div>
+<body class="b" bgc:rgb(12,123,23);>
+  <f-col bgc:rgb(225,222,123)!important;   class="f fig-center"> lorem </f-col>
+  <h2 +p,\em,\.d{color:red;center()} innerCol()>
+    <em>??</em>
+    <em>??</em>
+    <i class="d">???</i>
+  </h2>
+  <p wh(100;rgb(12,23,123))>??</p>
+  <p box(c:#fab)>!!</p>
+  <p box()>!!</p>
 </body>
 
 <script>
@@ -37,3 +38,4 @@
   })
 
 </script>
+
