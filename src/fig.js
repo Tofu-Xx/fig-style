@@ -50,6 +50,7 @@ window.onload = () => {
   const selectorTab = "}";
   const leftSelectorTab = "{";
   const atom_atom = ";";
+  const arg_arg = "|";
   const importantTab = "!";
 
   /*  */
@@ -149,7 +150,7 @@ window.onload = () => {
     if (!funArgs) return;
     // console.log(funArgs)
     funArgs = funArgs
-      .split(";")
+      .split(arg_arg)
       .map((el, i) => {
         // console.log('所有',el)
         /* 指定传参 */
@@ -205,9 +206,11 @@ window.onload = () => {
     atomGroup = atomGroup.slice(1, -1);
     /* toCss */
     let funCalssList = [];
+    // console.log(atomGroup)
     const css = atomGroup
       .split(atom_atom)
       .map((atom) => {
+        // console.log(atom)
         if (isFun(atom)) {
           const funName = atom.slice(0, atom.indexOf(leftFunTab));
           funCalssList.push("fig-" + funName);
