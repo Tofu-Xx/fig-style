@@ -370,12 +370,12 @@ f-col,f-row{
 }
 .fig-innerRow {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
 }
 
 .fig-innerCol {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
 }
   `;
   cssString += fAttrList

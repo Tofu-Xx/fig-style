@@ -54,6 +54,10 @@ f-row {
   flex-direction: column;
 }
 
+.fig-center {
+  display: grid;
+  place-content: center;
+}
 
 .fig-wh {
   --1: 100%;
@@ -64,15 +68,10 @@ f-row {
 }
 .fig-innerRow {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
 }
 
 .fig-innerCol {
   display: flex;
-  flex-direction: row;
-}
-.fig-center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
 }
