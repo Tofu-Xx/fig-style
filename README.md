@@ -384,6 +384,45 @@ div + .box {
 - 虽然整体很长,但本质还是一个 html 属性,所以不能有空格,否则会视为多个 html 属性
 - 注意 rgb 是 css 函数,center 是 fig 函数,都是可以使用的,css 函数可以看做是 css 属性值的一部分
 
+### 注释
+
+> 单独把一个 html 属性注释掉,原生是做不到的  
+> 不过如果你想注释掉 fig 样式的效果你可以在它们最前面加一个**井号**
+
+_注释前:_
+
+```html
+<ul
+  flex1
+  \li{wh(50|#fab);center();bor:1px_#000_solid}
+  innerRow()
+  main:center
+  cross:center>
+  <li>1</li>
+  <li>2</li>
+  <li>3</li>
+  <li>4</li>
+  <li>5</li>
+</ul>
+```
+
+_全部注释后:_
+
+```html
+<ul
+  #flex1
+  #\li{wh(50|#fab);center();bor:1px_#000_solid}
+  #innerRow()
+  #main:center
+  #cross:center>
+  <li>1</li>
+  <li>2</li>
+  <li>3</li>
+  <li>4</li>
+  <li>5</li>
+</ul>
+```
+
 ## fig 标签
 
 > 弹性盒可以解决百分之八十的布局  

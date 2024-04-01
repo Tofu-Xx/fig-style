@@ -32,12 +32,12 @@ window.onload = () => {
     pos: "position",
     bor: "border",
     /* 复合命名法 */
-    bg:'background',
+    bg: "background",
     bgc: "background-color",
     borr: "border-radius",
     /* 其他 */
-    cross: 'align-items',
-    main: 'justify-content',
+    cross: "align-items",
+    main: "justify-content",
     /* 用户自定义 */
     ...attrMap,
   };
@@ -105,7 +105,8 @@ window.onload = () => {
       (isCommonAtom(attr) || isFun(attr) || isSelector(attr) || hasNum(attr)) &&
       isEmpty &&
       !isStartNum(attr) &&
-      !isStart(attr, "#")
+      !isStart(attr, "#") 
+      // !isStart(attr, "?")
     );
   }
 
