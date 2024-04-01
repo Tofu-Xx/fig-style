@@ -1,10 +1,10 @@
 const attrMap = {};
 const valMap = {};
 
-function setAttrMap(obj) {
+export function setAttrMap(obj) {
   Object.assign(attrMap, obj);
 }
-function setValMap(obj) {
+export function setValMap(obj) {
   Object.assign(valMap, obj);
 }
 window.onload = () => {
@@ -32,6 +32,7 @@ window.onload = () => {
     pos: "position",
     bor: "border",
     /* 复合命名法 */
+    bg:'background',
     bgc: "background-color",
     borr: "border-radius",
     /* 其他 */
@@ -160,7 +161,7 @@ window.onload = () => {
         if (isFAttr(null, el)) {
           /* 默认传参为css函数 */
           if (isFun(el) && !has(el, attr_val)) {
-            return `--${i + 1}:${parseRawVal(rawVal)};`;
+            return `--fig${i + 1}:${parseRawVal(rawVal)};`;
           }
           let rawAttr, rawVal;
           /* fig一般属性 */
@@ -174,7 +175,7 @@ window.onload = () => {
         }
 
         /* 默认传参 */
-        return `--${i + 1}:${defaultValMap[el] ?? el};`;
+        return `--fig${i + 1}:${defaultValMap[el] ?? el};`;
       })
       .join("");
     return funArgs;
@@ -323,7 +324,7 @@ a {
 }
 
 ul,
-ol {
+ol,li{
   list-style: none;
 }
 
@@ -365,11 +366,11 @@ f-col,f-row{
   place-content: center;
 }
 .fig-wh {
-  --1: 100%;
-  --2: transparent;
-  width: var(--1);
-  height: var(--1);
-  background-color: var(--2);
+  --fig1: 100%;
+  --fig2: transparent;
+  width: var(--fig1);
+  height: var(--fig1);
+  background-color: var(--fig2);
 }
 .fig-innerRow {
   display: flex;

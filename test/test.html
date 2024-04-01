@@ -1,32 +1,18 @@
-<head>
-  <script src="../src/fig.js"></script>
-  <!-- <script src="../dist/fig.min.js"></script> -->
-
-</head>
-
-
-<style>
-  #test {
-    justify-content: baseline;
-  }
-</style>
-
 <body>
-  <f-row h100 gap:50px>
-      <ul \li{wh(50|#fab)} innerRow() cross:center>
-        <li>1</li>
-        <li>2</li>
-        <li>3</li>
-        <li>4</li>
-        <li>5</li>
-      </ul>
+  <f-row h100>
+    <ul flex1 
+    \li{wh(50|#fab);center();bor:1px_#000_solid}
+    innerRow()
+    >
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+      <li>4</li>
+      <li>5</li>
+    </ul>
     <f-col w300></f-col>
   </f-row>
 </body>
-
-<script>
-  setAttrMap({
-    cross: 'align-items',
-    main: 'justify-content',
-  })
+<script type="module" >
+  import "../src/fig.js"
 </script>

@@ -60,11 +60,11 @@ f-row {
 }
 
 .fig-wh {
-  --1: 100%;
-  --2: transparent;
-  width: var(--1);
-  height: var(--1);
-  background-color: var(--2);
+  --fig1: 100%;
+  --fig2: transparent;
+  width: var(--fig1);
+  height: var(--fig1);
+  background-color: var(--fig2);
 }
 .fig-innerRow {
   display: flex;
