@@ -34,6 +34,9 @@ window.onload = () => {
     /* 复合命名法 */
     bgc: "background-color",
     borr: "border-radius",
+    /* 其他 */
+    cross: 'align-items',
+    main: 'justify-content',
     /* 用户自定义 */
     ...attrMap,
   };
