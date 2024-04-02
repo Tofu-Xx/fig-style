@@ -27,7 +27,10 @@ window.onload = () => {
     b: "bottom",
     l: "left",
     r: "right",
+    c: "color",
     fs: "font-size",
+    fw: "font-weight",
+    dp: "display",
     /* 取三命名法 */
     pos: "position",
     bor: "border",
@@ -105,7 +108,7 @@ window.onload = () => {
       (isCommonAtom(attr) || isFun(attr) || isSelector(attr) || hasNum(attr)) &&
       isEmpty &&
       !isStartNum(attr) &&
-      !isStart(attr, "#") 
+      !isStart(attr, "#")
       // !isStart(attr, "?")
     );
   }
@@ -162,7 +165,7 @@ window.onload = () => {
         if (isFAttr(null, el)) {
           /* 默认传参为css函数 */
           if (isFun(el) && !has(el, attr_val)) {
-            return `--fig${i + 1}:${parseRawVal(rawVal)};`;
+            return `--fig${i + 1}:${parseRawVal(el)};`;
           }
           let rawAttr, rawVal;
           /* fig一般属性 */
@@ -381,6 +384,20 @@ f-col,f-row{
 .fig-innerCol {
   display: flex;
   flex-direction: column;
+}
+
+.fig-pseudoEl{
+  --a:'';
+  --b:'';
+&::before,&::after{
+  display:block;
+}
+&::after{
+  content:var(--a);
+}
+&::before{
+  content:var(--b);
+}
 }
   `;
   cssString += fAttrList
