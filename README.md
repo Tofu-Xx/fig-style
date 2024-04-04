@@ -1,3 +1,9 @@
+## 下载方式
+### npm
+```bash
+npm i fig-style
+```
+
 ## fig 样式写法
 
 ### 原子样式
