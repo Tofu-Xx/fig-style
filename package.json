@@ -1,22 +1,22 @@
 {
-  "name": "figcss",
-  "version": "1.0.0",
-  "description": "fig",
-  "main": "fig.js",
+  "name": "fig-style-tag",
+  "version": "0.0.1",
+  "description": "仅用html属性名完成css操作,原子样式,按需生成,fig函数,行内选择器,自定义属性映射,自定义属性值映射,自定义函数,接近原生写法,简单易上手",
+  "main": "dist/figcss.umd.js",
+  "module": "dis/figcss.mjs",
   "directories": {
     "test": "test"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack ",
-    "dev": " webpack serve --open "
+    "build": "vite build"
   },
   "author": "Tofu",
+  "files": [
+    "dist"
+  ],
   "license": "ISC",
-  "dependencies": {
-    "webpack": "^5.91.0"
-  },
   "devDependencies": {
-    "webpack-cli": "^5.1.4"
+    "vite": "^5.2.8"
   }
 }
