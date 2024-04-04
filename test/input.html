@@ -1,4 +1,10 @@
-<script type="module" src="../src/index.js"></script>
+<script type="module">
+  import {setAttrMap} from "../src/index.js"
+  setAttrMap({
+    ta:'text-align'
+  })
+</script>
+
 
 <body center()>
   <span w200 h50 pos:relative
@@ -9,7 +15,7 @@
     :has(input:focus){w220;transition:all.4s}>
     <input type="text" placeholder="请输入"
       wh()
-      text-align:center
+      ta:center
       ::placeholder{c:#f82;fw700}
       :focus::placeholder{c:transparent;transition:all.4s}
       pos:relative

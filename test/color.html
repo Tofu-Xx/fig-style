@@ -1,18 +1,35 @@
-<script type="module" src="../src/index.js"></script>
+<script type="module">
+  import { setValMap } from "../src/index.js";
+  setValMap({
+    '1c':'hsl(0deg, 100%, 50%)',
+    '12c':'hsl(80deg, 100%, 50%)',
+    a:'#6af',
+  })
+</script>
 
 <body center()>
-  <span w200 h50 pos:relative
-    pseudoEl()
-    ::after,::before{bor2px_#f82_solid;w100;h100%;pos:absolute;t0}
-    ::after{l0;border-right:0}
-    ::before{r0;border-left:0}
-    :has(input:focus){w220;transition:all.4s}>
-    <input type="text" placeholder="请输入"
-      wh()
-      text-align:center
-      ::placeholder{c:#f82;fw700}
-      :focus::placeholder{c:transparent;transition:all.4s}
-      pos:relative
-      z-index10>
-  </span>
+  <ul \li{ball();m5}>
+    <li bgc:1c!></li>
+    <li bgc:1c!></li>
+    <li bgc:1c!></li>
+    <li bgc:1c!></li>
+    <li bgc:1c!></li>
+    <li bgc:1c!></li>
+    <li bgc:1c!></li>
+    <li bgc:1c!></li>
+    <li bgc:1c!></li>
+    <li bgc:a></li>
+  </ul>
 </body>
+
+<style>
+  .fig-ball {
+    --size: 20px;
+    --c: #f80;
+    width: var(--size);
+    height: var(--size);
+    background-color: var(--c);
+    /* background-color: hsl(0deg, 100%, 50%); */
+    border-radius: 50%;
+  }
+</style>

@@ -238,7 +238,7 @@ f-col,f-row{
     /* 有!important标识 */
     if (rawValGroup.at(-1) === importantTab) {
       rawValGroup = rawValGroup.slice(0, -1);
-      rawValGroup += "!important";
+      rawValGroup += "_!important";
     }
     const cssVal = rawValGroup
       .split(val_val)
