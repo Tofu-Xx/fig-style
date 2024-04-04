@@ -1,16 +1,12 @@
 <script setup>
-import "fig-style"
+  // import "fig-style";
+  import "vue";
 </script>
 
 <template>
-  <header>
-    header
-  </header>
+  <header p:100px>header</header>
 
-  <main>
-    main
-  </main>
+  <main>main</main>
 </template>
 
-<style scoped>
-</style>
+<style scoped></style>
