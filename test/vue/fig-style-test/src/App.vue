@@ -1,12 +1,10 @@
 <script setup>
-  // import "fig-style";
-  import "vue";
+  import Header from "@/components/Header.vue";
 </script>
 
 <template>
-  <header p:100px>header</header>
-
-  <main>main</main>
+  <Header></Header>
+  <main p20 m10>main</main>
 </template>
 
 <style scoped></style>

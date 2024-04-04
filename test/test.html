@@ -1,19 +1,27 @@
+<style>
+  .test {
+    justify-content: center;
+    align-items: center;
+  }
+</style>
+
 <body>
   <f-row h100>
-    <ul flex1
-      \li{wh(50|#fab);center();bor:1px_#000_solid}
-      innerRow()
-      main:center
-      cross:center>
-      <li>1</li>
-      <li>2</li>
-      <li>3</li>
-      <li>4</li>
+    <ul
+      row() wh()
+      class="\li,\.li{wh(50|#fab);m5;bor5px_rgb(0,100,220)_solid;center();c:#fff;fw900;fs18px}"
+      #\li,\.li{wh(50|#fab);m5;bor5px_rgb(0,100,220)_solid;center();c:#fff;fw900;fs18px}>
+      <li class="borr50%">1</li>
+      <li borr50%>2</li>
+      <li wh(20!) w20!>3</li>
+      <li class="wh(20!) w20!">4</li>
       <li>5</li>
+      <div class="li">6</div>
+      <div class="li">7</div>
     </ul>
-    <f-col w300></f-col>
+    <!-- <div>??</div> -->
   </f-row>
 </body>
 <script type="module">
-  import "../src/fig.js"
+  import "../src/index.js"
 </script>
