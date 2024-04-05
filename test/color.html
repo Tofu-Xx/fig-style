@@ -1,24 +1,23 @@
 <script type="module">
   import { setValMap } from "../src/index.js";
   setValMap({
-    '1c':'hsl(0deg, 100%, 50%)',
-    '12c':'hsl(80deg, 100%, 50%)',
-    a:'#6af',
   })
 </script>
 
-<body center()>
-  <ul \li{ball();m5}>
-    <li bgc:1c!></li>
-    <li bgc:1c!></li>
-    <li bgc:1c!></li>
-    <li bgc:1c!></li>
-    <li bgc:1c!></li>
-    <li bgc:1c!></li>
-    <li bgc:1c!></li>
-    <li bgc:1c!></li>
-    <li bgc:1c!></li>
-    <li bgc:a></li>
+<body class="center()">
+  <ul class="\li{ball(size:100);m5px} w100vw"  row()>
+    <li bgc:hsl(330,100%,50%)!></li>
+    <li bgc:hsl(330,100%,50%)!></li>
+    <li bgc:hsl(330,100%,50%)!></li>
+    <li bgc:hsl(330,100%,50%)!></li>
+    <li bgc:hsl(330,100%,50%)!></li>
+    <li bgc:hsl(330,100%,50%)!></li>
+    <li bgc:hsl(330,100%,50%)!></li>
+    <li bgc:hsl(330,100%,50%)!></li>
+    <li bgc:hsl(330,100%,50%)!></li>
+    <li bgc:hsl(330,100%,50%)!></li>
+    <li bgc:hsl(330,100%,50%)!></li>
+    <li bgc:hsl(330,100%,50%)!></li>
   </ul>
 </body>
 
@@ -29,7 +28,6 @@
     width: var(--size);
     height: var(--size);
     background-color: var(--c);
-    /* background-color: hsl(0deg, 100%, 50%); */
     border-radius: 50%;
   }
 </style>

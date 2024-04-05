@@ -396,11 +396,10 @@ f-col,f-row{
   }
 
   function fFunToSelector(fFun) {
-    /* 添加类 */
-    const escaped = escape(fFun);
-    const funName = fFun.slice(0, fFun.indexOf(leftFunTab));
-    const hasFunDomList = Array(...document.querySelectorAll(`[${escaped}]`));
-    hasFunDomList.forEach((el) => el.classList.add("fig-" + funName));
+    let funName = fFun.slice(0, fFun.indexOf(leftFunTab));
+    let escaped;
+    let selector;
+    let hasFunDomList;
 
     /* 不传参不生成额外选择器 */
     const i = fFun.indexOf(leftFunTab);
@@ -408,13 +407,23 @@ f-col,f-row{
     funArgs = funArgs.slice(1, -1);
     if (!funArgs) return;
 
+    /* 生成选择器 */
     if (isClass(fFun)) {
       fFun = handleClass(fFun);
-      const escaped = escape(fFun);
-      return `.${escaped}`;
+      funName = handleClass(funName);
+      escaped = escape(fFun);
+      hasFunDomList = Array(...document.querySelectorAll(`.${escaped}`));
+      selector = `.${escaped}`;
+    } else {
+      escaped = escape(fFun);
+                                                           hasFunDomList = Array(...document.querySelectorAll(`[${escaped}]`));
+      selector = `[${escaped}].fig-${funName}`;
     }
+    console.log(hasFunDomList);
+    /* 添加类 */
+    hasFunDomList.forEach((el) => el.classList.add("fig-" + funName));
 
-    return `[${escaped}].fig-${funName}`;
+    return selector;
   }
   /**
    *  将fAttr转为css属性选择器
