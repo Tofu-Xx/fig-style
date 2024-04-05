@@ -401,11 +401,6 @@ f-col,f-row{
     let selector;
     let hasFunDomList;
 
-    /* 不传参不生成额外选择器 */
-    const i = fFun.indexOf(leftFunTab);
-    let [_, funArgs] = cut(fFun, i);
-    funArgs = funArgs.slice(1, -1);
-    if (!funArgs) return;
 
     /* 生成选择器 */
     if (isClass(fFun)) {
@@ -422,6 +417,13 @@ f-col,f-row{
     console.log(hasFunDomList);
     /* 添加类 */
     hasFunDomList.forEach((el) => el.classList.add("fig-" + funName));
+
+    
+    /* 不传参不生成额外选择器 */
+    const i = fFun.indexOf(leftFunTab);
+    let [_, funArgs] = cut(fFun, i);
+    funArgs = funArgs.slice(1, -1);
+    if (!funArgs) return;
 
     return selector;
   }
