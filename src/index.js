@@ -419,7 +419,7 @@ f-col,f-row{
     hasFunDomList.forEach((el) => el.classList.add("fig-" + funName));
 
     
-    /* 不传参不生成额外选择器 */
+    /* 空参不生成额外选择器 */
     const i = fFun.indexOf(leftFunTab);
     let [_, funArgs] = cut(fFun, i);
     funArgs = funArgs.slice(1, -1);
