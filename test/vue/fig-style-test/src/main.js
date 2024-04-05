@@ -1,5 +1,5 @@
 import { createApp } from 'vue'
 import App from './App.vue'
-import "fig-style"
+import { setAttrMap } from 'fig-style'
 
 createApp(App).mount('body')

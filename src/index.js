@@ -414,7 +414,7 @@ f-col,f-row{
                                                            hasFunDomList = Array(...document.querySelectorAll(`[${escaped}]`));
       selector = `[${escaped}].fig-${funName}`;
     }
-    console.log(hasFunDomList);
+    // console.log(hasFunDomList);
     /* 添加类 */
     hasFunDomList.forEach((el) => el.classList.add("fig-" + funName));
 

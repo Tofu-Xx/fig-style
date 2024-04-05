@@ -1,5 +1,7 @@
 ## 下载方式
+
 ### npm
+
 ```bash
 npm i fig-style
 ```
@@ -37,6 +39,7 @@ width: 100px;
 ##### 映射 css 函数
 
 > 正常写法,没有特殊要注意的
+
 ```html
 <div color:rbg(255,0,0)></div>
 ```
@@ -261,20 +264,37 @@ CSS 中的某些属性可以直接应用数值，而不需要指定单位，这�
   place-content: center;
 }
 .fig-wh {
-  --1: 100%;
-  --2: transparent;
-  width: var(--1);
-  height: var(--1);
-  background-color: var(--2);
+  --fig1: 100%;
+  --fig2: transparent;
+  width: var(--fig1);
+  height: var(--fig1);
+  background-color: var(--fig2);
 }
-.fig-innerRow {
-  display: flex;
-  flex-direction: column;
-}
-
-.fig-innerCol {
+.fig-row {
   display: flex;
   flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.fig-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.fig-pseudoEl {
+  --a: "";
+  --b: "";
+  &::before,
+  &::after {
+    display: block;
+  }
+  &::after {
+    content: var(--a);
+  }
+  &::before {
+    content: var(--b);
+  }
 }
 ```
 
@@ -428,13 +448,10 @@ _全部注释后:_
 </ul>
 ```
 
+## class 写法
 
-
-
-## class写法
-- 以上所以html属性名的写法都可以写类名形式
-> 这是为了解决渲染真实dom节点时html属性名无法使用特殊字符的问题
-
+- 以上所有 html 属性名的写法都可以写类名形式
+  > 这是为了解决渲染真实 dom 节点时 html 属性名无法使用特殊字符的问题
 
 ## fig 标签
 
@@ -473,4 +490,4 @@ _全部注释后:_
 > 行标签和列标签是可以嵌套使用的  
 > 行标签和列标签做兄弟节点时,列标签是不起效的  
 > 当然你可以选择不用这两个标签  
-> 用内置 fig 函数 innerRow()和 innerCol()一样方便
+> 用内置 fig 函数 row()和 col()一样方便

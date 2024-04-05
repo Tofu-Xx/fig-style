@@ -9,6 +9,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "fig-style": "^0.0.2"
+    "fig-style": "^0.0.3"
   }
 }

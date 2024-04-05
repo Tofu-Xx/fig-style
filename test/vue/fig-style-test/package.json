@@ -1,6 +1,6 @@
 {
   "name": "fig-style-test",
-  "version": "0.0.0",
+  "version": "",
   "private": true,
   "type": "module",
   "scripts": {
@@ -11,7 +11,7 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
-    "fig-style": "^0.0.2",
+    "fig-style": "^0.0.3",
     "vue": "^3.4.21"
   },
   "devDependencies": {
