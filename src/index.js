@@ -401,7 +401,6 @@ f-col,f-row{
     let selector;
     let hasFunDomList;
 
-
     /* 生成选择器 */
     if (isClass(fFun)) {
       fFun = handleClass(fFun);
@@ -411,14 +410,13 @@ f-col,f-row{
       selector = `.${escaped}`;
     } else {
       escaped = escape(fFun);
-                                                           hasFunDomList = Array(...document.querySelectorAll(`[${escaped}]`));
+      hasFunDomList = Array(...document.querySelectorAll(`[${escaped}]`));
       selector = `[${escaped}].fig-${funName}`;
     }
     // console.log(hasFunDomList);
     /* 添加类 */
     hasFunDomList.forEach((el) => el.classList.add("fig-" + funName));
 
-    
     /* 空参不生成额外选择器 */
     const i = fFun.indexOf(leftFunTab);
     let [_, funArgs] = cut(fFun, i);
