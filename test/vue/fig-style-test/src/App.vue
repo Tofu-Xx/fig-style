@@ -9,14 +9,25 @@
     ::after,::before{bor2px_#f82_solid;w100;h100%;pos:absolute;t0}
     ::after{l0;border-right:0}
     ::before{r0;border-left:0}
-    :has(input:focus){w220;transition:all.4s}">
+    transition:all.4s
+    :has(input:focus){w220}">
     <input type="text" placeholder="请输入" class="
-      wh() text-align:center
+      wh() ta:center
       ::placeholder{c:#f82;fw700}
-      :focus::placeholder{c:transparent;transition:all.4s}
+      hidPlaceholder()
       pos:relative
       z-index10">
   </span>
 </template>
 
-<style scoped></style>
+<style scoped>
+  .fig-hidPlaceholder {
+    --s: 1s;
+    &::placeholder {
+      transition: all var(--s);
+    }
+    &:focus::placeholder {
+      color: transparent;
+    }
+  }
+</style>
