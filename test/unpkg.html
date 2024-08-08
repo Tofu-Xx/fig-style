@@ -1,0 +1,29 @@
+<script src="https://unpkg.com/fig-style/dist/fig-style.umd.js"></script>
+
+<body center()>
+  <ul
+    row() gap5px
+    \li{wh(100|#fab);center();fs20;borr10px;c:#fff;transition:all_.5s;}
+    \[active]{bgc:#f6a}
+    \[clicked]{transform:scale(.8)}>
+    <li active>tofu</li>
+    <li>tofu</li>
+    <li>tofu</li>
+    <li>tofu</li>
+    <li>tofu</li>
+    <li>tofu</li>
+  </ul>
+</body>
+<script>
+  Array(...document.querySelectorAll('li')).forEach(li => {
+    li.addEventListener('mouseenter', () => {
+      document.querySelector('[active]').removeAttribute('active');
+      li.setAttribute('active', '');
+    });
+  });
+  document.querySelector('ul').addEventListener('click', e => {
+    if (e.target.tagName !== 'LI') return;
+    document.querySelector('[clicked]')?.removeAttribute('clicked');
+    e.target.setAttribute('clicked', '');
+  })
+</script>

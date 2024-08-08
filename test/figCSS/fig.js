@@ -1,10 +1,10 @@
 const attrMap = {};
 const valMap = {};
 
-export function setAttrMap(obj) {
+function setAttrMap(obj) {
   Object.assign(attrMap, obj);
 }
-export function setValMap(obj) {
+function setValMap(obj) {
   Object.assign(valMap, obj);
 }
 window.onload = () => {
