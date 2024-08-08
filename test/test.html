@@ -1,14 +1,38 @@
 <style>
-  .test {
-    justify-content: center;
-    align-items: center;
+  .fig-shadow {
+    --fig1: 10px;
+    --fig2: #0008;
+    box-shadow: 1px 1px var(--fig1) var(--fig2);
+  }
+
+  .fig-box {
+    --width: 100px;
+    --height: 100px;
+    --p: 0;
+    --c: transparent;
+    padding: var(--p);
+    width: var(--width);
+    height: var(--height);
+    background-color: var(--c);
   }
 </style>
 
 <body center()>
-  <div class="wh(100|#fab)"></div>
+  <div class="wh(80|#6af) shadow(20px)"></div>
+  <br><br>
   <div wh(100|#fab)></div>
+  <br><br>
+
+  <div box()>1</div>
+  <div box(width20)>2</div>
+  <div box(c:rgb(225,0,0)|height20)>3</div>
+  <div box(p5_10_20)>4</div>
 </body>
+
+
+
+
 <script type="module">
-  import "../src/index.js"
+  import "../src/index.js";
+  // import "../src/index.css"
 </script>

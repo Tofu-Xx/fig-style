@@ -50,8 +50,7 @@ window.onload = () => {
     ...valMap,
   };
   /* css */
-  let cssString = `
-  *,
+  let cssString = `*,
 *::before,
 *::after {
   margin: 0;
@@ -69,7 +68,8 @@ a {
 }
 
 ul,
-ol,li{
+ol,
+li {
   list-style: none;
 }
 
@@ -91,7 +91,8 @@ b,
 strong {
   font-weight: inherit;
 }
-f-col,f-row{
+f-col,
+f-row {
   background-color: #0002;
 }
 *:has(> f-row),
@@ -131,20 +132,20 @@ f-col,f-row{
   align-items: center;
 }
 
-.fig-pseudoEl{
-  --a:'';
-  --b:'';
-&::before,&::after{
-  display:block;
-}
-&::after{
-  content:var(--a);
-}
-&::before{
-  content:var(--b);
-}
-}
-  `;
+.fig-pseudoEl {
+  --fig1: '';
+  --fig2: '';
+  &::before,
+  &::after {
+    display: block;
+  }
+  &::after {
+    content: var(--fig1);
+  }
+  &::before {
+    content: var(--fig2);
+  }
+}`;
 
   /* 语法符号 */
   const val_val = "_";
@@ -249,7 +250,8 @@ f-col,f-row{
   function funToCss(fun) {
     // console.log(fun)
     const i = fun.indexOf(leftFunTab);
-    let [_, funArgs] = cut(fun, i);
+    let [funName, funArgs] = cut(fun, i);
+    funName = isClass(funName) ? funName.slice(6, funName.length) : funName;
     funArgs = funArgs.slice(1, -1);
     if (!funArgs) return;
     // console.log(funArgs)
@@ -261,7 +263,8 @@ f-col,f-row{
         if (isFAttr(null, el)) {
           /* 默认传参为css函数 */
           if (isFun(el) && !has(el, attr_val)) {
-            return `--fig${i + 1}:${parseRawVal(el)};`;
+
+            return `--${funName}${i + 1}:${parseRawVal(el)};`;
           }
           let rawAttr, rawVal;
           /* fig一般属性 */
@@ -273,9 +276,9 @@ f-col,f-row{
           }
           return `--${rawAttr}:${parseRawVal(rawVal)};`;
         }
-
+        console.log(funName);
         /* 默认传参 */
-        return `--fig${i + 1}:${parseRawVal(el)};`;
+        return `--${funName}${i + 1}:${parseRawVal(el)};`;
       })
       .join("");
     return funArgs;
