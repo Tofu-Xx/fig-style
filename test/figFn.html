@@ -1,8 +1,8 @@
 <style>
   .fig-shadow {
-    --fig1: 10px;
-    --fig2: #0008;
-    box-shadow: 1px 1px var(--fig1) var(--fig2);
+    --shadow1: 10px;
+    --shadow2: #0008;
+    box-shadow: 1px 1px var(--shadow1) var(--shadow2);
   }
 
   .fig-box {
@@ -20,7 +20,7 @@
 <body center()>
   <div class="wh(80|#6af) shadow(20px)"></div>
   <br><br>
-  <div wh(100|#fab)></div>
+  <div wh(100|#fab) shadow(80px|#fab)></div>
   <br><br>
 
   <div box()>1</div>
@@ -33,6 +33,6 @@
 
 
 <script type="module">
-  import "../src/index.js";
-  // import "../src/index.css"
+  // import "../src/index.js";
+  import "../dist/fig-style.mjs"
 </script>

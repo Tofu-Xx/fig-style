@@ -1,1 +1,0 @@
-# fig-style-test

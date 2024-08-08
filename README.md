@@ -1,9 +1,15 @@
-## 下载方式
+## 使用方式
 
-### npm
+### 包管理安装
 
 ```bash
 npm i fig-style
+yarn add fig-style
+pnpm i fig-style
+```
+### CDN引入
+```html
+<script src="https://unpkg.com/fig-style/dist/fig-style.umd.js"></script>
 ```
 
 ## fig 样式写法

@@ -1,3 +1,4 @@
+
 const attrMap = {};
 const valMap = {};
 
@@ -50,102 +51,7 @@ window.onload = () => {
     ...valMap,
   };
   /* css */
-  let cssString = `*,
-*::before,
-*::after {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  min-height: 100vh;
-}
-
-a {
-  text-decoration: inherit;
-  color: inherit;
-}
-
-ul,
-ol,
-li {
-  list-style: none;
-}
-
-button,
-input,
-select,
-option,
-textarea {
-  border: unset;
-  outline: unset;
-}
-
-i,
-em {
-  font-style: inherit;
-}
-
-b,
-strong {
-  font-weight: inherit;
-}
-f-col,
-f-row {
-  background-color: #0002;
-}
-*:has(> f-row),
-*:has(> f-col) {
-  display: flex;
-}
-*:has(> f-col) {
-  flex-direction: row;
-}
-
-*:has(> f-row) {
-  flex-direction: column;
-}
-
-.fig-center {
-  display: grid;
-  place-content: center;
-}
-.fig-wh {
-  --fig1: 100%;
-  --fig2: transparent;
-  width: var(--fig1);
-  height: var(--fig1);
-  background-color: var(--fig2);
-}
-.fig-row {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-}
-
-.fig-col {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.fig-pseudoEl {
-  --fig1: '';
-  --fig2: '';
-  &::before,
-  &::after {
-    display: block;
-  }
-  &::after {
-    content: var(--fig1);
-  }
-  &::before {
-    content: var(--fig2);
-  }
-}`;
+  let cssString = '*,*:before,*:after{margin:0;padding:0;box-sizing:border-box}body{min-height:100vh}a{text-decoration:inherit;color:inherit}ul,ol,li{list-style:none}button,input,select,option,textarea{border:unset;outline:unset}i,em{font-style:inherit}b,strong{font-weight:inherit}f-col,f-row{background-color:#0002}*:has(>f-row),*:has(>f-col){display:flex}*:has(>f-col){flex-direction:row}*:has(>f-row){flex-direction:column}.fig-center{display:grid;place-content:center}.fig-wh{--wh1: 100%;--wh2: transparent;width:var(--wh1);height:var(--wh1);background-color:var(--wh2)}.fig-row{display:flex;flex-direction:row;justify-content:center;align-items:center}.fig-col{display:flex;flex-direction:column;justify-content:center;align-items:center}.fig-pseudoEl{--pseudoEl1: "";--pseudoEl2: ""}.fig-pseudoEl:before,.fig-pseudoEl:after{display:block}.fig-pseudoEl:after{content:var(--pseudoEl1)}.fig-pseudoEl:before{content:var(--pseudoEl2)}';
 
   /* 语法符号 */
   const val_val = "_";

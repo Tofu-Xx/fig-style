@@ -4,7 +4,7 @@ export default defineConfig({
   build: {
     lib: {
       entry: "src/index.js",
-      name: "fig",
+      name: "fig-style",
     },
     // rollupOptions: {
     //   external:['vue'],
