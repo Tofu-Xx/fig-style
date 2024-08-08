@@ -4,3 +4,4 @@ dist
 *.pem
 *.cer
 *.log
+*node.*
