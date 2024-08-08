@@ -6,13 +6,5 @@ export default defineConfig({
       entry: "src/index.js",
       name: "fig-style",
     },
-    // rollupOptions: {
-    //   external:['vue'],
-    //   output: {
-    //     globals: {
-    //       fig: "fig",
-    //     },
-    //   },
-    // },
   },
 });
