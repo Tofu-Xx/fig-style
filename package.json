@@ -12,6 +12,11 @@
   "files": [
     "dist"
   ],
+  "keywords": [
+    "atomic-css",
+    "css",
+    "attributes"
+  ],
   "license": "ISC",
   "devDependencies": {
     "vite": "^5.2.8"
@@ -19,10 +24,5 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Tofu-Xx/fig-style.git"
-  },
-  "keywords": [
-    "atomic-css",
-    "css",
-    "attributes"
-  ]
+  }
 }
