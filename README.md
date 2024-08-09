@@ -9,7 +9,7 @@ pnpm i fig-style
 ```
 ### CDN引入
 ```html
-<script src="https://unpkg.com/fig-style/dist/fig-style.umd.js"></script>
+<script src="https://unpkg.com/fig-style/dist/main.umd.js"></script>
 ```
 
 ## fig 样式写法

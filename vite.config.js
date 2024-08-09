@@ -5,6 +5,7 @@ export default defineConfig({
     lib: {
       entry: "src/index.js",
       name: "fig-style",
+      fileName: (format) => `main.${format}.js`,
     },
   },
 });
