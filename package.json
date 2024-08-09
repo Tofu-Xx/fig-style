@@ -10,7 +10,8 @@
   },
   "author": "Tofu-Xx",
   "files": [
-    "dist"
+    "dist",
+    "README.md"
   ],
   "keywords": [
     "atomic-css",
