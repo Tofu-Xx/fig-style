@@ -39,21 +39,6 @@ b,
 strong {
   font-weight: inherit;
 }
-f-col,
-f-row {
-  background-color: #0002;
-}
-*:has(> f-row),
-*:has(> f-col) {
-  display: flex;
-}
-*:has(> f-col) {
-  flex-direction: row;
-}
-
-*:has(> f-row) {
-  flex-direction: column;
-}
 
 .fig-center {
   display: grid;
