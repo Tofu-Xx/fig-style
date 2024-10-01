@@ -1,7 +1,7 @@
 {
   "name": "fig-style",
   "type": "module",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "仅用html属性名完成css操作,原子样式,按需生成,fig函数,行内选择器,自定义属性映射,自定义属性值映射,自定义函数,接近原生写法,简单易上手",
   "author": "tofu-xx <<tofu_xx@vk.com>>",
   "license": "MIT",
