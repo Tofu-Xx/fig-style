@@ -7,7 +7,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "vite build",
-    "release":"bumpp "
+    "release": "bumpp",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
   },
   "author": "Tofu-Xx",
   "files": [
@@ -21,7 +23,10 @@
   ],
   "license": "MIT",
   "devDependencies": {
+    "@antfu/eslint-config": "^3.7.3",
     "bumpp": "^9.6.1",
+    "eslint": "^9.11.1",
+    "eslint-plugin-format": "^0.1.2",
     "vite": "^5.2.8"
   },
   "repository": {
