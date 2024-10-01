@@ -1,9 +1,25 @@
 {
   "name": "fig-style",
+  "type": "module",
   "version": "0.0.9",
   "description": "仅用html属性名完成css操作,原子样式,按需生成,fig函数,行内选择器,自定义属性映射,自定义属性值映射,自定义函数,接近原生写法,简单易上手",
+  "author": "Tofu-Xx",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Tofu-Xx/fig-style.git"
+  },
+  "keywords": [
+    "atomic-css",
+    "css",
+    "attributes"
+  ],
   "main": "dist/fig-style.umd.js",
   "module": "dist/fig-style.mjs",
+  "files": [
+    "README.md",
+    "dist"
+  ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "vite build",
@@ -11,27 +27,12 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix"
   },
-  "author": "Tofu-Xx",
-  "files": [
-    "dist",
-    "README.md"
-  ],
-  "keywords": [
-    "atomic-css",
-    "css",
-    "attributes"
-  ],
-  "license": "MIT",
   "devDependencies": {
     "@antfu/eslint-config": "^3.7.3",
     "bumpp": "^9.6.1",
     "eslint": "^9.11.1",
     "eslint-plugin-format": "^0.1.2",
     "vite": "^5.2.8"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Tofu-Xx/fig-style.git"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"

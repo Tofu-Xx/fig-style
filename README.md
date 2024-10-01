@@ -1,13 +1,7 @@
 ## 使用方式
 
-### 包管理安装
-
-```bash
-npm i fig-style
-yarn add fig-style
-pnpm i fig-style
-```
 ### CDN引入
+
 ```html
 <script src="https://unpkg.com/fig-style/dist/main.umd.js"></script>
 ```
@@ -47,7 +41,7 @@ width: 100px;
 > 正常写法,没有特殊要注意的
 
 ```html
-<div color:rbg(255,0,0)></div>
+<div color:rgb(255,0,0)>red</div>
 ```
 
 ##### 映射 css 复合属性值
@@ -118,9 +112,10 @@ fs:"font-size",
 
 <script>
   setAttrMap({
-    c: "color",
-  });
+    c: 'color',
+  })
 </script>
+
 ```
 
 > **setAttrMap**是暴露在全局的函数\
@@ -136,9 +131,10 @@ fs:"font-size",
 
 <script>
   setValMap({
-    "\\": "none",
-  });
+    '\\': 'none',
+  })
 </script>
+
 ```
 
 > **setValMap**是暴露在全局的函数\
@@ -190,6 +186,7 @@ fs:"font-size",
 </style>
 
 <div center()>lorem</div>
+
 ```
 
 > 自己声明 fig 函数时记得加 **fig-** 类名前缀,为了避免与普通的类名冲突\
@@ -217,6 +214,7 @@ fs:"font-size",
 <div wh()></div>
 <div wh(100)></div>
 <div wh(100|rgb(225,0,0))></div>
+
 ```
 
 > 类的命名法是 fig- + **fig函数名** 类中写上 css 变量,**css 变量名必须是
@@ -229,7 +227,7 @@ fs:"font-size",
 
 ```html
 <style>
- .fig-box {
+  .fig-box {
     --width: 100px;
     --height: 100px;
     --p: 0;
@@ -245,6 +243,7 @@ fs:"font-size",
 <div box(width20)>2</div>
 <div box(c:rgb(225,0,0)|height20)>3</div>
 <div box(p5_10_20)>4</div>
+
 ```
 
 > 这里 fig 函数的参数写法类似于原子样式\
@@ -278,8 +277,8 @@ fs:"font-size",
   align-items: center;
 }
 .fig-pseudoEl {
-  --a: "";
-  --b: "";
+  --a: '';
+  --b: '';
   &::before,
   &::after {
     display: block;
@@ -291,6 +290,7 @@ fs:"font-size",
     content: var(--b);
   }
 }
+
 ```
 
 #### fig 函数优先级
@@ -323,6 +323,7 @@ fs:"font-size",
 ```css
 div + .box {
 }
+
 ```
 
 > 但如果你看一下控制台,就会看到实际解析出的选择器长的十分复杂且怪异
@@ -333,6 +334,7 @@ div + .box {
 ```css
 所在标签 + .box {
 }
+
 ```
 
 - fig 选择器也支持伪类和伪元素选择器,后面例子中会提到
@@ -358,6 +360,7 @@ div + .box {
 所在标签 > .box {
   width: 100%;
 }
+
 ```
 
 ##### 后代选择器
@@ -414,35 +417,27 @@ div + .box {
 _注释前:_
 
 ```html
-<ul
-  flex1
-  \li{wh(50|#fab);center();bor:1px_#000_solid}
-  innerRow()
-  main:center
-  cross:center>
+<ul flex1 \li{wh(50|#fab);center();bor:1px_#000_solid} innerRow() main:center cross:center>
   <li>1</li>
   <li>2</li>
   <li>3</li>
   <li>4</li>
   <li>5</li>
 </ul>
+
 ```
 
 _全部注释后:_
 
 ```html
-<ul
-  #flex1
-  #\li{wh(50|#fab);center();bor:1px_#000_solid}
-  #innerRow()
-  #main:center
-  #cross:center>
+<ul #flex1 #\li{wh(50|#fab);center();bor:1px_#000_solid} #innerRow() #main:center #cross:center>
   <li>1</li>
   <li>2</li>
   <li>3</li>
   <li>4</li>
   <li>5</li>
 </ul>
+
 ```
 
 ## class 写法

@@ -1,39 +1,35 @@
 <script src="../dist/main.umd.js"></script>
-<script>
-  // import { setAttrMap } from "../dist/mian.es.js";
-  setAttrMap({
-    ta: 'text-align'
-  })
-</script>
-
 
 <body col() gap10px>
-  <span w200 h50 pos:relative
+  <span
+    w200
+    h50
+    pos:relative
     pseudoEl()
     ::after,::before{bor2px_#f82_solid;w100;h100%;pos:absolute;t0}
     ::after{l0;border-right:0}
     ::before{r0;border-left:0}
-    :has(input:focus){w220;transition:all.4s}>
-    <input type="text" placeholder="请输入"
+    :has(input:focus){w220;transition:all.4s}
+  >
+    <input
+      type="text"
+      placeholder="请输入"
       wh()
-      ta:center
+      text-align:center
       ::placeholder{c:#f82;fw700}
       :focus::placeholder{c:transparent;transition:all.4s}
       pos:relative
-      z-index10>
+      z-index10
+    />
   </span>
-  <br><br>
-  <span class="w200 h50 pos:relative
-    pseudoEl()
-    ::after,::before{bor2px_#f82_solid;w100;h100%;pos:absolute;t0}
-    ::after{l0;border-right:0}
-    ::before{r0;border-left:0}
-    :has(input:focus){w220;transition:all.4s}">
-    <input type="text" placeholder="请输入" class="
-      ta:center wh()
-      ::placeholder{c:#f82;fw700}
-      :focus::placeholder{c:transparent;transition:all.4s}
-      pos:relative
-      z-index10">
+  <br /><br />
+  <span
+    class="w200 h50 pos:relative pseudoEl() ::after,::before{bor2px_#f82_solid;w100;h100%;pos:absolute;t0} ::after{l0;border-right:0} ::before{r0;border-left:0} :has(input:focus){w220;transition:all.4s}"
+  >
+    <input
+      type="text"
+      placeholder="请输入"
+      class="text-align:center wh() ::placeholder{c:#f82;fw700} :focus::placeholder{c:transparent;transition:all.4s} pos:relative z-index10"
+    />
   </span>
 </body>
