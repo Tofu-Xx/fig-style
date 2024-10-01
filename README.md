@@ -111,7 +111,7 @@ fs:"font-size",
 <div c:red>!!!</div>
 
 <script>
-  setAttrMap({
+  fig.setAttrMap({
     c: 'color',
   })
 </script>
@@ -130,7 +130,7 @@ fs:"font-size",
 <div display:\>看不到我</div>
 
 <script>
-  setValMap({
+  fig.setValMap({
     '\\': 'none',
   })
 </script>

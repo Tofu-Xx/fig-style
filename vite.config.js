@@ -4,7 +4,7 @@ export default defineConfig({
   build: {
     lib: {
       entry: 'src/index.js',
-      name: 'fig-style',
+      name: 'fig',
       fileName: format => `main.${format}.js`,
     },
   },

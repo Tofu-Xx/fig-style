@@ -3,7 +3,7 @@
   "type": "module",
   "version": "0.0.9",
   "description": "仅用html属性名完成css操作,原子样式,按需生成,fig函数,行内选择器,自定义属性映射,自定义属性值映射,自定义函数,接近原生写法,简单易上手",
-  "author": "Tofu-Xx",
+  "author": "tofu-xx <<tofu_xx@vk.com>>",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -14,8 +14,8 @@
     "css",
     "attributes"
   ],
-  "main": "dist/fig-style.umd.js",
-  "module": "dist/fig-style.mjs",
+  "main": "dist/main.umd.js",
+  "module": "dist/main.es.js",
   "files": [
     "README.md",
     "dist"
