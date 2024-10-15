@@ -5,7 +5,7 @@
 </h1>
 
 <P align=center>
-  ❗此项目已die❗
+  ❗本项目已die❗
 </p>
 
 <P align=center>
