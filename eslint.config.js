@@ -6,5 +6,6 @@ export default antfu({
     'unicorn/no-new-array': 'off',
     'no-array-constructor': 'off',
     'no-unused-vars': 'off',
+    'format/prettier': 'off',
   },
 })

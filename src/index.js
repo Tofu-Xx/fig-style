@@ -31,12 +31,12 @@ window.onload = () => {
     fs: 'font-size',
     fw: 'font-weight',
     dp: 'display',
+    bg: 'background',
+    bgc: 'background-color',
     /* 取三命名法 */
     pos: 'position',
     bor: 'border',
     /* 复合命名法 */
-    bg: 'background',
-    bgc: 'background-color',
     borr: 'border-radius',
     /* 其他 */
     cross: 'align-items',
