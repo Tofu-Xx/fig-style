@@ -27,7 +27,6 @@
     "dist"
   ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "build": "vite build",
     "release": "bumpp --no-push && pnpm publish",
     "lint": "eslint .",
